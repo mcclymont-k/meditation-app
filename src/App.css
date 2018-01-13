@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+
+}
+
+.menuBarContainer {
+  display:flex;
+  width: 80vw;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 40px auto;
+
+}
+
+.menuBarButton {
+  border: 1px solid black;
+  font-size: 50px;
+  flex:4;
+  text-align: center;
+
+}
+
+.socialButton {
+  flex:1;
+}
+
+.optionsBar {
+  width: 80vw;
+  margin: 30px auto;
+  border: 1px solid black;
+  height: 100px;
+}
+
+.timerContainer {
+  width: 80vw;
+  border: 1px solid black;
+  margin: 20px auto;
+}
