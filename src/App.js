@@ -47,39 +47,82 @@ class DigitalTime extends Component {
 
 class AnalogTime extends Component {
 
-  componentDidMount() {
-    let now
-    setInterval(() => {
-      now = new Date();
-      console.log(now.getHours(), now.getMinutes(), now.getSeconds());
-    }, 1000)
+
+  constructor() {
+    super();
+    this.state = {
+      seconds: 0,
+      minutes: 0
+    };
   }
 
-  render(){
 
-    return(
+  handleStartClick() {
+    this.incrementer = setInterval(() => {
+      this.setState({seconds:(this.state.seconds + 1)})
+    }, 1000);
+  };
+
+  handleStopClick() {
+    clearInterval(this.incrementer)
+
+  };
+
+  getSeconds() {
+    return ('0' + this.state.seconds % 60).slice(-2)
+  }
+
+  getMinutes() {
+    return (Math.floor(this.state.seconds / 60))
+  }
+
+  reset() {
+    this.setState({
+      seconds: 0,
+      minutes: 0
+    })
+  }
+  render() {
+
+    return (
       <div>
-        <div>Analog timer</div>
+        <h1>{this.getMinutes()} : {this.getSeconds()}</h1>
+        <button type='button' onClick={this.handleStartClick.bind(this)}>
+          Start
+        </button>
+        <button type='button' onClick={this.handleStopClick.bind(this)}>
+          Stop
+        </button>
+        <button type='button' onClick={this.reset.bind(this)}>
+          Reset
+        </button>
       </div>
     )
   }
 }
+
+
+
+
 
 class App extends Component {
   constructor() {
     super()
     this.state = {serverData: fakeUser}
   }
-
   render() {
     return (
       <div>
-        <MenuBar/>
-        <OptionsMenu/>
-        <div className='timerContainer'>
-          <AnalogTime/>
-          <DigitalTime/>
-        </div>
+        {this.state.serverData ?
+          <div>
+            <MenuBar/>
+            <OptionsMenu/>
+            <div className='timerContainer'>
+              <AnalogTime/>
+              <DigitalTime/>
+            </div>
+          </div>
+          : []}
       </div>
     )
 
