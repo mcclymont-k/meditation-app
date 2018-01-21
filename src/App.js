@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import bell from './Sounds/Bell.wav'
-
+import AwesomeButton from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
 
 let fakeUser = {
   name: "Kieran",
@@ -28,11 +29,12 @@ class MenuBar extends Component {
   }
 }
 
-class OptionsMenu extends Component {
+class OptionType extends Component {
   constructor(){
     super()
     this.state = {
       reminder: 0,
+      decision: 0
     }
   }
 
@@ -42,6 +44,12 @@ class OptionsMenu extends Component {
       this.setState({reminder: event.options[event.selectedIndex].value})
       this.props.connector(this.state.reminder)
     })
+
+    let decisionSelect = document.getElementById('visualTimer')
+    decisionSelect.addEventListener('change', e => {
+      this.setState({decision: decisionSelect.options[decisionSelect.selectedIndex].value})
+      this.props.decisionConnector(this.state.decision)
+    })
   }
 
   render() {
@@ -49,23 +57,22 @@ class OptionsMenu extends Component {
       <div className='optionsBar'>
         <h1>Options</h1>
         <div>
-          <select id='timerSelect'>
-            <option value=''>Muted</option>
-            <option value='60'>1 min reminder</option>
-            <option value='300'>5 min reminder</option>
-            <option value='600'>10 min reminder</option>
-            <option value='3600'>60 min reminder</option>
-          </select>
-          <select id='visualTimer'>
-            <option value='1'>yes</option>
-            <option value='0'>no</option>
-          </select>
+            <select id='timerSelect'>
+              <option value=''>Muted</option>
+              <option value='60'>1 min reminder</option>
+              <option value='300'>5 min reminder</option>
+              <option value='600'>10 min reminder</option>
+              <option value='3600'>60 min reminder</option>
+            </select>
+            <select id='visualTimer'>
+              <option value='1'>yes</option>
+              <option value='0'>no</option>
+            </select>
         </div>
       </div>
     )
   }
 }
-
 
 class DigitalTime extends Component {
   constructor() {
@@ -82,6 +89,7 @@ class DigitalTime extends Component {
   handleStartClick() {
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
+    audio.play()
     this.incrementer = setInterval(() => {
       timer.style.animation = 'spinner 1s ease-out infinite'
       this.setState({
@@ -120,16 +128,16 @@ class DigitalTime extends Component {
   }
 
   longestTimeHandler() {
-    if (this.state.longestTime > 60){
-      return Math.floor(this.state.longestTime /60) + ":" +
-      ('0' + this.state.longestTime % 60).slice(-2);
+    let longestTime = this.state.longestTime
+    if (longestTime > 60){
+      return Math.floor(longestTime /60) + ":" +
+      ('0' + longestTime % 60).slice(-2);
     } else {
-      return ('0' + this.state.longestTime % 60).slice(-2)
+      return ('0' + longestTime % 60).slice(-2)
     }
   }
 
   render() {
-
     return (
       <div className='digitalTimer'>
         <h1>Timer</h1>
@@ -161,11 +169,28 @@ class App extends Component {
     this.state = {
       serverData: fakeUser,
       counter: 0,
+      decision: 0,
     }
   }
 
   connector(data) {
     this.setState({counter : data})
+  }
+
+  decisionConnector(data){
+    this.setState({decision: data})
+  }
+
+  handleDecision () {
+    const clock = document.querySelector('.clock')
+    if (clock){
+      if (this.state.decision === '0' && (clock.classList.contains('clicked') === false)) {
+        clock.classList.toggle('clicked')
+      } else if (this.state.decision === '1' && (clock.classList.contains('clicked') === true)){
+        clock.classList.toggle('clicked')
+
+      }
+    }
   }
 
   render() {
@@ -174,9 +199,16 @@ class App extends Component {
         {this.state.serverData ?
           <div>
             <MenuBar/>
-            <OptionsMenu connector={this.connector.bind(this)}/>
+            <OptionType
+              {...this.handleDecision()}
+              connector={this.connector.bind(this)}
+              decisionConnector={this.decisionConnector.bind(this)}
+            />
             <div className='timerContainer'>
-              <DigitalTime counterState={this.state.counter}/>
+              <DigitalTime
+                counterState={this.state.counter}
+                decisionState={this.state.decision}
+              />
             </div>
           </div>
           : []}
