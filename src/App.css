@@ -1,41 +1,78 @@
 body {
   margin: 0;
+  background-color: #d8e6ec;
+}
 
+ul {
+  list-style: none;
+  text-align: center;
 }
 
 .menuBarContainer {
   display:flex;
-  width: 80vw;
-  justify-content: center;
-  border: 1px solid black;
+  width: 70vw;
   margin: 40px auto;
-
+  color: #77b1c9;
 }
 
 .menuBarButton {
-  border: 1px solid black;rt
-  font-size: 50px;
-  flex:4;
-  text-align: center;
-
+  font-size: 20px;
+  flex:5;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .socialButton {
   flex:1;
 }
 
+.buttonOne{
+  background-color: #1a475a;
+}
+
+.buttonTwo{
+  background-color: #547c89;
+  color: #011C28;
+}
+
+.buttonThree{
+  background-color: #011C28;
+}
+
+.buttonFour{
+  background-color: #092F40;
+}
+
 .optionsBar {
-  width: 80vw;
+  width: 70vw;
   margin: 30px auto;
   border: 1px solid black;
-  height: 100px;
+  height: auto;
+  display: flex;
+  background-color: #1a475a;
+  overflow:auto;
+}
+
+.eachOption {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.optionTag{
+  /* box-shadow: 5px 3px 3px #687073;
+  text-shadow: 1px 1px 3px #687073;
+  background-color: #c0c0c0; */
+  color: #77b1c9;
 }
 
 .timerContainer {
-  width: 80vw;
-  border: 1px solid black;
+  width: 70vw;
   margin: 20px auto;
   display: flex;
+  justify-content: center;
 }
 
 .digitalTimer {
@@ -47,17 +84,6 @@ body {
   height: 400px;
   align-items: center;
   justify-content: center;
-}
-
-.analogTimer {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    height: auto;
-    width: 400px;
-    height: 400px;
-    align-items: center;
-    justify-content: center;
 }
 
 .clock {
@@ -79,27 +105,25 @@ body {
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  border-top: 4px solid orangered;
+  border-top: 4px solid #1a475a;
   animation: ;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-@keyframes spinner{
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
 .hand {
   width: 70px;
   height: 4px;
   background-color: black;
   transform: rotate(90deg);
+}
+
+@keyframes spinner{
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform:rotate(360deg)
+  }
 }

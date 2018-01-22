@@ -17,10 +17,10 @@ class MenuBar extends Component {
   render() {
     return(
       <div className='menuBarContainer'>
-        <div className = 'menuBarButton'>Home</div>
-        <div className = 'menuBarButton'>Timer</div>
-        <div className = 'menuBarButton'>History</div>
-        <div className = 'menuBarButton'>Settings</div>
+        <div className = 'menuBarButton buttonOne'>Home</div>
+        <div className = 'menuBarButton buttonTwo'>Timer</div>
+        <div className = 'menuBarButton buttonThree'>History</div>
+        <div className = 'menuBarButton buttonFour'>Settings</div>
         <div className = 'menuBarButton socialButton'>I</div>
         <div className = 'menuBarButton socialButton'>F</div>
         <div className = 'menuBarButton socialButton'>T</div>
@@ -55,19 +55,23 @@ class OptionType extends Component {
   render() {
     return(
       <div className='optionsBar'>
-        <h1>Options</h1>
-        <div>
-            <select id='timerSelect'>
-              <option value=''>Muted</option>
-              <option value='60'>1 min reminder</option>
-              <option value='300'>5 min reminder</option>
-              <option value='600'>10 min reminder</option>
-              <option value='3600'>60 min reminder</option>
-            </select>
-            <select id='visualTimer'>
-              <option value='1'>yes</option>
-              <option value='0'>no</option>
-            </select>
+        <h1 className='eachOption optionTag'>Options</h1>
+        <div className='eachOption'>
+          <select id='timerSelect'>
+            <option selected disabled>Set the reminder Gong</option>
+            <option value=''>No reminders</option>
+            <option value='60'>1 min reminder</option>
+            <option value='300'>5 min reminder</option>
+            <option value='600'>10 min reminder</option>
+            <option value='3600'>60 min reminder</option>
+          </select>
+        </div>
+        <div className='eachOption'>
+          <select id='visualTimer'>
+            <option selected disabled>Show the animated clock?</option>
+            <option value='1'>yes</option>
+            <option value='0'>no</option>
+          </select>
         </div>
       </div>
     )
