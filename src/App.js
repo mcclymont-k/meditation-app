@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import bell from './Sounds/Bell.wav'
-import AwesomeButton from 'react-awesome-button';
-import 'react-awesome-button/dist/styles.css';
 
 let fakeUser = {
   name: "Kieran",
