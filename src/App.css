@@ -12,7 +12,7 @@ ul {
   display:flex;
   width: 70vw;
   margin: 40px auto;
-  color: #77b1c9;
+  color: #b0b2bd;
 }
 
 .menuBarButton {
@@ -22,27 +22,22 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #011c28;
+  background-color: #011c28;
+}
+
+.menuBarButton:hover {
+  opacity: 0.9;
+  transform: scale(0.95);
+  transition: 0.5s;
 }
 
 .socialButton {
   flex:1;
-}
+  background-color: #d8e6ec;
+  color: #011c28;
+  border: 1px solid #011c28;
 
-.buttonOne{
-  background-color: #1a475a;
-}
-
-.buttonTwo{
-  background-color: #547c89;
-  color: #011C28;
-}
-
-.buttonThree{
-  background-color: #011C28;
-}
-
-.buttonFour{
-  background-color: #092F40;
 }
 
 .optionsBar {
@@ -62,10 +57,7 @@ ul {
 }
 
 .optionTag{
-  /* box-shadow: 5px 3px 3px #687073;
-  text-shadow: 1px 1px 3px #687073;
-  background-color: #c0c0c0; */
-  color: #77b1c9;
+  color: #b0b2bd;
 }
 
 .timerContainer {
