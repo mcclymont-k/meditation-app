@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #d8e6ec;
+  background-color: #ccced4;
 }
 
 ul {
@@ -34,7 +34,7 @@ ul {
 
 .socialButton {
   flex:1;
-  background-color: #d8e6ec;
+  background-color: #ccced4;
   color: #011c28;
   border: 1px solid #011c28;
 
@@ -43,10 +43,10 @@ ul {
 .optionsBar {
   width: 70vw;
   margin: 30px auto;
-  border: 1px solid black;
+
   height: auto;
   display: flex;
-  background-color: #1a475a;
+  background-color:#d8e6ec;
   overflow:auto;
 }
 
@@ -57,7 +57,7 @@ ul {
 }
 
 .optionTag{
-  color: #b0b2bd;
+  color: #011c28;
 }
 
 .timerContainer {

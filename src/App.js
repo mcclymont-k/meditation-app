@@ -83,7 +83,8 @@ class DigitalTime extends Component {
       seconds: 0,
       minutes: 0,
       longestTime: 0,
-      counter: 0
+      counter: 0,
+      timerRunning: false
     };
   }
 
@@ -91,18 +92,22 @@ class DigitalTime extends Component {
   handleStartClick() {
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
-    audio.play()
-    this.incrementer = setInterval(() => {
-      timer.style.animation = 'spinner 1s ease-out infinite'
-      this.setState({
-        counter: this.props.counterState,
-        seconds:(this.state.seconds + 1),
-        minutes: Math.floor(this.state.seconds / 60)
-      })
-      if (this.state.seconds%this.state.counter === 0){
-        audio.play()
-      }
-    }, 1000);
+    if (this.state.timerRunning === false){
+      audio.play()
+      this.incrementer = setInterval(() => {
+        timer.style.animation = 'spinner 1s ease-out infinite'
+        this.setState({
+          timerRunning: true,
+          counter: this.props.counterState,
+          seconds:(this.state.seconds + 1),
+          minutes: Math.floor(this.state.seconds / 60)
+        })
+        if (this.state.seconds%this.state.counter === 0){
+          audio.play()
+        }
+      }, 1000);
+    }
+
   };
 
   handleStopClick() {
@@ -112,6 +117,9 @@ class DigitalTime extends Component {
     }
     clearInterval(this.incrementer)
     timer.style.animation = '';
+    this.setState({
+      timerRunning: false
+    })
   };
 
   getSeconds() {
