@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import bell from './Sounds/Bell.wav'
+import instagram from './Pictures/instagram.jpg'
+import facebook from './Pictures/facebook.jpg'
+import twitter from './Pictures/twitter.png'
 
 let fakeUser = {
   name: "Kieran",
@@ -19,9 +22,9 @@ class MenuBar extends Component {
         <div className = 'menuBarButton buttonTwo'>Timer</div>
         <div className = 'menuBarButton buttonThree'>History</div>
         <div className = 'menuBarButton buttonFour'>Settings</div>
-        <div className = 'menuBarButton socialButton'>I</div>
-        <div className = 'menuBarButton socialButton'>F</div>
-        <div className = 'menuBarButton socialButton'>T</div>
+        <div className = 'menuBarButton socialButton'><img className='socialButtonPic' src={instagram}></img></div>
+        <div className = 'menuBarButton socialButton'><img className='socialButtonPic' src={facebook}></img></div>
+        <div className = 'menuBarButton socialButton'><img className='socialButtonPic' src={twitter}></img></div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ccced4;
+  background-color: #e2e6f3;
 }
 
 ul {
@@ -22,7 +22,6 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #011c28;
   background-color: #011c28;
 }
 
@@ -30,23 +29,26 @@ ul {
   opacity: 0.9;
   transform: scale(0.95);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .socialButton {
   flex:1;
-  background-color: #ccced4;
+  background-color: #e2e6f3;
   color: #011c28;
-  border: 1px solid #011c28;
+}
+
+.socialButtonPic {
+  height: 100%;
 
 }
 
 .optionsBar {
   width: 70vw;
   margin: 30px auto;
-
   height: auto;
   display: flex;
-  background-color:#d8e6ec;
+  background-color:#3e96bc;
   overflow:auto;
 }
 
