@@ -8,6 +8,11 @@ ul {
   text-align: center;
 }
 
+a, a:link, a:visited, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .menuBarContainer {
   display:flex;
   width: 70vw;
