@@ -10,12 +10,16 @@ class DigitalTimer extends Component {
       minutes: 0,
       longestTime: 0,
       counter: 0,
-      timerRunning: false
+      timerRunning: false,
+      currentDay: new Date().getDate(),
+      currentMonth: new Date().getMonth() + 1
     };
   }
 
 
   handleStartClick() {
+    console.log(this.state.currentDay)
+    console.log(this.state.currentMonth)
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
     if (this.state.timerRunning === false){
@@ -63,6 +67,13 @@ class DigitalTimer extends Component {
     })
   }
 
+  saveHistory() {
+    let date = this.state.currentDay + ':' + this.state.currentMonth
+    let timer = this.state.longestTime
+    console.log(date)
+    console.log(timer)
+  }
+
   longestTimeHandler() {
     let longestTime = this.state.longestTime
     if (longestTime > 60){
@@ -90,6 +101,9 @@ class DigitalTimer extends Component {
           </button>
           <button type='button' onClick={this.reset.bind(this)}>
             Reset
+          </button>
+          <button type='button'>Save
+
           </button>
         </div>
         <h2>Longest Time: {this.longestTimeHandler()} </h2>

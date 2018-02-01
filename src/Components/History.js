@@ -4,6 +4,7 @@ class History extends Component {
   render(){
     return(
       <div>History</div>
+      
     )
   }
 }
