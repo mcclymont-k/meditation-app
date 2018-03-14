@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Timer from './Timer'
+
 
 
 class Home extends Component {
   render() {
     return(
-      <div>Home</div>
+      <div>
+        <Timer/>
+      </div>
     )
   }
 }

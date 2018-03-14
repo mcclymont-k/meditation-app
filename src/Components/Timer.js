@@ -33,10 +33,12 @@ class Timer extends Component {
   handleDecision () {
     const clock = document.querySelector('.clock')
     if (clock){
-      if (this.state.decision === '0' && (clock.classList.contains('clicked') === false)) {
+      if (this.state.decision === '0'
+      && (clock.classList.contains('clicked') === false)) {
         clock.classList.toggle('clicked')
-      } else if (this.state.decision === '1' && (clock.classList.contains('clicked') === true)){
-        clock.classList.toggle('clicked')
+      } else if (this.state.decision === '1'
+        && (clock.classList.contains('clicked') === true)){
+          clock.classList.toggle('clicked')
 
       }
     }
@@ -47,7 +49,7 @@ class Timer extends Component {
         <div>
           {this.state.serverData ?
             <div>
-              
+
               <OptionType
                 {...this.handleDecision()}
                 connector={this.connector.bind(this)}
