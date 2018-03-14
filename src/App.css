@@ -122,11 +122,51 @@ a:focus {
   transform: rotate(90deg);
 }
 
+.articlesContainer {
+  width: 50vw;
+  height: auto;
+  margin: 60px auto;
+  background-color: white;
+  padding-bottom: 20px;
+}
+
 .articleContainer {
-  width: 70vw;
-  border: 1px solid black;
-  height: 30px;
-  margin: 30px auto;
+  display:flex;
+  height: auto;
+}
+
+.articleLeft {
+  flex: 1;
+}
+
+.articleRight {
+  flex: 1;
+}
+
+.articleRight h1 {
+  font-size: 20px;
+}
+
+.articleName {
+  min-height: 100px;
+  text-align: center;
+}
+
+.articleName p {
+  padding-top: 10px;
+
+}
+
+.articleImage {
+  padding-bottom: 10px;
+}
+
+.borderBottom {
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 1px;
+  background-color: grey;
+  z-index: 1;
 }
 
 .historyContainer {
