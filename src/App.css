@@ -137,19 +137,22 @@ a:focus {
 
 .articleLeft {
   flex: 1;
+  align-items: center;
 }
 
 .articleRight {
   flex: 1;
-}
-
-.articleRight h1 {
-  font-size: 20px;
+  padding: 10px;
 }
 
 .articleName {
   min-height: 100px;
   text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 20px;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 .articleName p {
@@ -158,6 +161,10 @@ a:focus {
 }
 
 .articleImage {
+  padding-bottom: 10px;
+  height: 400px;
+  width: 300px;
+  padding-left: 10px;
   padding-bottom: 10px;
 }
 
