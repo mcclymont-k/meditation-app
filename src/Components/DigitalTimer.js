@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import bell from '../Sounds/Bell.wav'
-
+import fire from '../fire.js'
+const database = fire.database()
 
 class DigitalTimer extends Component {
   constructor() {
@@ -18,8 +19,6 @@ class DigitalTimer extends Component {
 
 
   handleStartClick() {
-    console.log(this.state.currentDay)
-    console.log(this.state.currentMonth)
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
     if (this.state.timerRunning === false){
@@ -70,8 +69,6 @@ class DigitalTimer extends Component {
   saveHistory() {
     let date = this.state.currentDay + ':' + this.state.currentMonth
     let timer = this.state.longestTime
-    console.log(date)
-    console.log(timer)
   }
 
   longestTimeHandler() {
@@ -82,6 +79,14 @@ class DigitalTimer extends Component {
     } else {
       return ('0' + longestTime % 60).slice(-2)
     }
+  }
+
+  saveData() {
+    const historyRef = database.ref('history')
+    const data = {
+      longestTime: this.state.longestTime
+    }
+    historyRef.push(data)
   }
 
   render() {
@@ -102,9 +107,7 @@ class DigitalTimer extends Component {
           <button type='button' onClick={this.reset.bind(this)}>
             Reset
           </button>
-          <button type='button'>Save
-
-          </button>
+          <button type='button' onClick={this.saveData.bind(this)}>Save</button>
         </div>
         <h2>Longest Time: {this.longestTimeHandler()} </h2>
         <audio src={bell} className='bell'></audio>

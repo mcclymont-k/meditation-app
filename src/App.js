@@ -7,8 +7,6 @@ import History from './Components/History'
 import Articles from './Components/Articles'
 import './App.css'
 
-
-
 class App extends Component {
   render() {
     return(
