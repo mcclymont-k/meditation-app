@@ -53,7 +53,7 @@ a:focus {
 }
 
 .optionsBar {
-  width: 70vw;
+  width: 50vw;
   margin: 30px auto;
   height: auto;
   display: flex;
@@ -142,29 +142,27 @@ a:focus {
 
 .articleRight {
   flex: 1;
-  padding: 10px;
+  padding: 40px;
 }
 
 .articleName {
   min-height: 100px;
   text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
   font-size: 20px;
-  padding-top: 10px;
+  padding: 30px;
   font-weight: bold;
 }
 
 .articleName p {
-  padding-top: 10px;
+  padding-top: 30px;
 
 }
 
 .articleImage {
   padding-bottom: 10px;
-  height: 400px;
-  width: 300px;
-  padding-left: 10px;
+  max-height: 500px;
+  max-width: 345px;
+  padding-left: 30px;
   padding-bottom: 10px;
 }
 
