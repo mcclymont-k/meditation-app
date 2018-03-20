@@ -84,7 +84,7 @@ a:focus {
   border: 1px solid black;
   height: auto;
   width: 400px;
-  height: 400px;
+  height: auto;
   align-items: center;
   justify-content: center;
 }
@@ -153,6 +153,10 @@ a:focus {
   font-weight: bold;
 }
 
+.articleName:hover {
+  color: red;
+}
+
 .articleName p {
   padding-top: 30px;
 
@@ -175,12 +179,16 @@ a:focus {
 }
 
 .historyContainer {
-  width: 70vw;
+  min-width: 50px;
+  min-height: 50px;
   border: 1px solid black;
   height: 30px;
   margin: 30px auto;
 }
 
+.historyBox {
+  font-size: 10px;
+}
 @keyframes spinner{
   0%{
     transform: rotate(0deg)

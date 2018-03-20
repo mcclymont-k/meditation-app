@@ -13,10 +13,9 @@ class DigitalTimer extends Component {
       counter: 0,
       timerRunning: false,
       currentDay: new Date().getDate(),
-      currentMonth: new Date().getMonth() + 1
-    };
+      currentMonth: new Date().getMonth() + 1,
+    }
   }
-
 
   handleStartClick() {
     const timer = document.querySelector('.secondsHand')
@@ -36,7 +35,6 @@ class DigitalTimer extends Component {
         }
       }, 1000);
     }
-
   };
 
   handleStopClick() {
@@ -66,11 +64,6 @@ class DigitalTimer extends Component {
     })
   }
 
-  saveHistory() {
-    let date = this.state.currentDay + ':' + this.state.currentMonth
-    let timer = this.state.longestTime
-  }
-
   longestTimeHandler() {
     let longestTime = this.state.longestTime
     if (longestTime > 60){
@@ -82,11 +75,22 @@ class DigitalTimer extends Component {
   }
 
   saveData() {
+    let secondsCount = 0
     const historyRef = database.ref('history')
+    if (this.state.seconds%60 < 10){
+      secondsCount = '0' + this.state.seconds%60
+    } else {
+      secondsCount = this.state.seconds%60
+    }
     const data = {
-      longestTime: this.state.longestTime
+      time: this.state.minutes + ':' + secondsCount,
+      date: {
+        day: this.state.currentDay,
+        month: this.state.currentMonth
+      }
     }
     historyRef.push(data)
+    this.reset()
   }
 
   render() {
@@ -94,7 +98,9 @@ class DigitalTimer extends Component {
       <div className='digitalTimer'>
         <h1>Timer</h1>
         <div className='clock'>
-          <div className='secondsHand'><div className='hand'></div></div>
+          <div className='secondsHand'>
+            <div className='hand'></div>
+          </div>
         </div>
         <h1>{this.getMinutes()} : {this.getSeconds()}</h1>
         <div className='timerButtonContainer'>

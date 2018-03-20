@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import bell from '../Sounds/Bell.wav'
-import instagram from '../Pictures/instagram.jpg'
-import facebook from '../Pictures/facebook.jpg'
-import twitter from '../Pictures/twitter.png'
 import {Link, Route, HashRouter as Router} from 'react-router-dom'
 
 

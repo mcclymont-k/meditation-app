@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Timer from './Timer'
-
+import HistoryRender from './HistoryRender'
 
 
 class Home extends Component {
@@ -8,6 +8,9 @@ class Home extends Component {
     return(
       <div>
         <Timer/>
+        <div className='historyBox'>
+          <HistoryRender />
+        </div>
       </div>
     )
   }

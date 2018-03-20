@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link, Route, HashRouter as Router} from 'react-router-dom'
 import MenuBar from './Components/MenuBar'
-import Timer from './Components/Timer'
 import Home from './Components/Home'
 import History from './Components/History'
 import Articles from './Components/Articles'
@@ -15,7 +14,6 @@ class App extends Component {
           <MenuBar/>
           <Route exact path='/' component={Home}/>
           <Route exact path='/articles' component={Articles}/>
-          <Route exact path='/timer' component={Timer}/>
           <Route exact path='/history' component={History}/>
         </div>
       </Router>
