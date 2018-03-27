@@ -22,11 +22,16 @@ class HistoryRender extends Component {
         }
         const time = historyData[data].time
         const day = historyData[data].date.day
-        const month = historyData[data].date.month
+        let month = historyData[data].date.month
+        if (month < 10) {
+          month = '0' + month
+        }
+        const year = historyData[data].date.year
         timeArray.push({
           time: time,
           day: day,
-          month: month
+          month: month,
+          year: year
         })
       })
       this.setState({history: timeArray.reverse()})
@@ -39,9 +44,11 @@ class HistoryRender extends Component {
         {this.state.history.map((unit) => {
           return (
             <div>
-              <h1>Time: {unit.time}</h1>
-              <h1>Day: {unit.day}</h1>
-              <h1>Month: {unit.month}</h1>
+              <h1>
+                Date of meditation: {unit.day} / {unit.month} / {unit.year}
+              </h1>
+              <h1>Length of meditation: {unit.time}</h1>
+              <div className='borderBottom'></div>
             </div>
           )
         })}

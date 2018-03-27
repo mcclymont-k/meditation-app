@@ -7,10 +7,14 @@ class Home extends Component {
   render() {
     return(
       <div>
-        <Timer/>
-        <div className='historyBox'>
-          <HistoryRender />
+        <div className='mainContainer'>
+          <Timer/>
+          <div className='historyRenderMain'>
+            <h1 className='renderTitle'>Past History</h1>
+            <HistoryRender />
+          </div>
         </div>
+
       </div>
     )
   }

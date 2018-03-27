@@ -9,15 +9,16 @@ class DigitalTimer extends Component {
     this.state = {
       seconds: 0,
       minutes: 0,
-      longestTime: 0,
       counter: 0,
       timerRunning: false,
       currentDay: new Date().getDate(),
       currentMonth: new Date().getMonth() + 1,
+      currentYear: new Date().getFullYear(),
     }
   }
 
   handleStartClick() {
+    console.log(this.state.currentYear)
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
     if (this.state.timerRunning === false){
@@ -39,9 +40,6 @@ class DigitalTimer extends Component {
 
   handleStopClick() {
     const timer = document.querySelector('.secondsHand')
-    if (this.state.seconds > this.state.longestTime){
-      this.setState({longestTime: this.state.seconds})
-    }
     clearInterval(this.incrementer)
     timer.style.animation = '';
     this.setState({
@@ -64,16 +62,6 @@ class DigitalTimer extends Component {
     })
   }
 
-  longestTimeHandler() {
-    let longestTime = this.state.longestTime
-    if (longestTime > 60){
-      return Math.floor(longestTime /60) + ":" +
-      ('0' + longestTime % 60).slice(-2);
-    } else {
-      return ('0' + longestTime % 60).slice(-2)
-    }
-  }
-
   saveData() {
     let secondsCount = 0
     const historyRef = database.ref('history')
@@ -86,7 +74,8 @@ class DigitalTimer extends Component {
       time: this.state.minutes + ':' + secondsCount,
       date: {
         day: this.state.currentDay,
-        month: this.state.currentMonth
+        month: this.state.currentMonth,
+        year: this.state.currentYear
       }
     }
     historyRef.push(data)
@@ -115,7 +104,6 @@ class DigitalTimer extends Component {
           </button>
           <button type='button' onClick={this.saveData.bind(this)}>Save</button>
         </div>
-        <h2>Longest Time: {this.longestTimeHandler()} </h2>
         <audio src={bell} className='bell'></audio>
       </div>
     )
