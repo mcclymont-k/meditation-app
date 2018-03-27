@@ -9,7 +9,7 @@ class MenuBar extends Component {
         <h1 className='menuBarTitle'>Meditation-Timer</h1>
         <div className='menuBarContainer'>
           <Link to='/' className = 'menuBarButton buttonOne'>Home</Link>
-          <Link to='/articles' className = 'menuBarButton buttonFour'>Articles</Link>
+          <Link to='/articles' className = 'menuBarButton buttonTwo'>Articles</Link>
           <Link to='/history' className = 'menuBarButton buttonThree'>History</Link>
         </div>
       </div>
