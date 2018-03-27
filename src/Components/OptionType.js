@@ -24,11 +24,28 @@ class OptionType extends Component {
     })
   }
 
+  questionPopUpOne () {
+    const popUp = document.querySelector('.questionPopUpOne')
+    popUp.classList.toggle('clicked')
+  }
+
+  questionPopUpTwo () {
+    const popUp = document.querySelector('.questionPopUpTwo')
+    popUp.classList.toggle('clicked')
+  }
+
   render() {
     return(
       <div className='optionsBar'>
         <h1 className='eachOption optionTag'>Options</h1>
         <div className='eachOption'>
+          <div className='questionPopUp' onClick={this.questionPopUpOne}>?
+            <div className='questionPopUpOne'>
+              Use this button to organise how often you would like the reminder gong to sound.<br /><br />
+              You can use it to keep you on track, or to signal the end of a session.<br /><br />
+              Try the tabata gong for a quick 4min workout.
+            </div>
+          </div>
           <select id='timerSelect'>
             <option selected disabled>Set the reminder Gong</option>
             <option value=''>No reminders</option>
@@ -39,6 +56,12 @@ class OptionType extends Component {
           </select>
         </div>
         <div className='eachOption'>
+        <div className='questionPopUp' onClick={this.questionPopUpTwo}>?
+          <div className='questionPopUpTwo'>
+            The animated clock can be helpful when trying to control the regularity of your breath and heartbeat<br /><br />
+            Use the option menu to show or hide the clock.
+          </div>
+        </div>
           <select id='visualTimer'>
             <option selected disabled>Show the animated clock?</option>
             <option value='1'>yes</option>

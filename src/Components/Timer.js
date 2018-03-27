@@ -6,7 +6,6 @@ class Timer extends Component {
   constructor() {
     super()
     this.state = {
-      // serverData: fakeUser,
       counter: 0,
       decision: 0,
     }
