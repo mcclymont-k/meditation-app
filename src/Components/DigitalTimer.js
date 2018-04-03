@@ -5,7 +5,7 @@ const database = fire.database()
 
 class DigitalTimer extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       seconds: 0,
       minutes: 0,

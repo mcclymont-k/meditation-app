@@ -295,3 +295,12 @@ a:focus {
     transform:rotate(360deg)
   }
 }
+
+.chart div{
+  background-color: black;
+  height: 50px;
+  margin: 20px;
+  color: white;
+  text-align: right;
+
+}

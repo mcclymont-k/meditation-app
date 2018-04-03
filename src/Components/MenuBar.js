@@ -10,7 +10,7 @@ class MenuBar extends Component {
         <div className='menuBarContainer'>
           <Link to='/' className = 'menuBarButton buttonOne'>Home</Link>
           <Link to='/articles' className = 'menuBarButton buttonTwo'>Articles</Link>
-          <Link to='/history' className = 'menuBarButton buttonThree'>History</Link>
+          <Link to='/about' className = 'menuBarButton buttonThree'>About</Link>
         </div>
       </div>
     )
