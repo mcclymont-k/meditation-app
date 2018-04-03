@@ -21,7 +21,10 @@ class HistoryRender extends Component {
           return
         }
         const time = historyData[data].time
-        const day = historyData[data].date.day
+        let day = historyData[data].date.day
+        if (day < 10) {
+          day = '0' + day
+        }
         let month = historyData[data].date.month
         if (month < 10) {
           month = '0' + month

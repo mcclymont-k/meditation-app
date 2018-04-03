@@ -32,7 +32,7 @@ a:focus {
   font-size: 25px;
   color: white;
   margin: 30px;
-  position: fixed;
+  position: absolute;
 }
 
 .menuBarButton {
@@ -79,6 +79,7 @@ a:focus {
 
 .questionPopUp:hover {
   cursor: pointer;
+  background-color: red;
 }
 
 .questionPopUpOne {
@@ -238,7 +239,7 @@ a:focus {
 
 .mainContainer {
   display: flex;
-  width: 80vw;
+  width: 70vw;
   margin: 20px auto;
   justify-content: center;
 }
@@ -246,7 +247,6 @@ a:focus {
 .historyRenderMain {
   padding: 30px;
   border: 1px solid black;
-  height: 30vw;
   max-width: 400px;
   min-width: 200px;
   margin-left: 50px;
@@ -256,7 +256,6 @@ a:focus {
   background-color: #011c28;
   color: #e2e6f3;
   text-align: center;
-  overflow: auto;
 }
 
 .renderTitle {
@@ -272,13 +271,14 @@ a:focus {
   .historyRenderMain{
     width: 70vw;
     font-size: 0.75vw;
+    margin-left: 0;
   }
   .renderTitle {
     font-size: 2vw;
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   .menuBarContainer{
     justify-content: flex-end;
   }
