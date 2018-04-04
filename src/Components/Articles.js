@@ -32,14 +32,14 @@ class Articles extends Component {
       <div>
         <div className='articleContainer'>
           <div className='articleLeft'>
-            <div className='articleName'><a href={article.source}>{article.name}</a></div>
+            <div className='articleName '><a className= 'articleContent' href={article.source}><h1>{article.name}</h1></a></div>
             <img className='articleImage' src={article.image}></img>
           </div>
           <div className='articleRight'>
             {article.blurb}
           </div>
         </div>
-        <div className='borderBottom'></div>
+        <div className='borderBottom' />
       </div>
     )
   }

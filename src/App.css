@@ -22,6 +22,8 @@ a:focus {
   display:flex;
   width: 100vw;
   height: 100px;
+  min-width: 557px;
+  overflow: auto;
   color: #e2e6f3;
   background-color: #011c28;
   align-items: center;
@@ -37,6 +39,7 @@ a:focus {
 
 .menuBarButton {
   font-size: auto;
+  font-weight: bold;
   height: 50px;
   display: flex;
   align-items: center;
@@ -123,7 +126,7 @@ a:focus {
 .timerContainer {
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .digitalTimer {
@@ -131,6 +134,8 @@ a:focus {
   flex-direction: column;
   align-items: center;
   width: 400px;
+  padding: 50px 0 50px 0;
+  background-color: white;
 }
 
 .digitalTimer h1 {
@@ -226,10 +231,7 @@ a:focus {
 
 .articleName {
   min-height: 100px;
-  text-align: center;
-  font-size: 20px;
-  padding: 30px;
-  font-weight: bold;
+  font-size: 15px;
 }
 
 .articleName:hover {
@@ -238,7 +240,19 @@ a:focus {
 
 .articleName p {
   padding-top: 30px;
+}
 
+.articleContent h1 {
+
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  margin: 12px 0 7px 0;
+  background-color: #011c28;
+  color: #e2e6f3;
+  width: 100%;
+  padding-left: 20px;
+  height: auto;
 }
 
 .articleImage {
@@ -250,19 +264,11 @@ a:focus {
 }
 
 .borderBottom {
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 10px 2% 10px 2%;
   height: 1px;
   background-color: grey;
   z-index: 1;
-}
-
-.historyContainer {
-  min-width: 50px;
-  min-height: 50px;
-  border: 1px solid black;
-  height: 30px;
-  margin: 30px auto;
+  opacity: 0.5;
 }
 
 .historyBox {
@@ -278,7 +284,6 @@ a:focus {
 
 .historyRenderMain {
   padding: 30px;
-  border: 1px solid black;
   max-height: 600px;
   overflow: auto;
   max-width: 400px;
@@ -319,6 +324,11 @@ a:focus {
   .menuBarButton {
     margin-right: 20px;
   }
+
+  .contentContainer {
+    width: 80vw !important;
+    transition: 0.5s;
+  }
 }
 
 @keyframes spinner{
@@ -330,11 +340,74 @@ a:focus {
   }
 }
 
-.chart div{
-  background-color: black;
-  height: 50px;
-  margin: 20px;
-  color: white;
-  text-align: right;
+.contentContainer {
+  display: grid;
+  height: 80vh;
+  background-color: white;
+  width: 50vw;
+  max-width: 700px;
+  min-width: 392px;
+  margin: auto;
+  margin-top: 30px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-flow: row;
+  transition: 0.3s;
+}
 
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  overflow: auto;
+}
+
+.contentItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+}
+
+.contentItem h1 {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  margin: 7px 0 7px 0;
+  background-color: #011c28;
+  color: #e2e6f3;
+  width: 70%;
+  padding-left: 20px;
+}
+
+.contentItem p {
+  font-size: 13px;
+  padding: 10px;
+}
+
+.contactInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  transition: 1s;
+  border: 1px solid white;
+}
+
+.contactInfo h1 {
+  font-size: 20px;
+}
+
+.contactInfo h2 {
+  font-size: 12px;
+}
+.contactInfo img {
+  transition: 1s;
+  border-radius: 50%;
+}
+.contactInfo img:hover {
+  background-color: #dc62f5;
+}
+
+a:visited {
+  text-decoration: none;
 }
