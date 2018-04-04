@@ -123,6 +123,7 @@ a:focus {
 .timerContainer {
   display: flex;
   justify-content: center;
+  margin-top: 120px;
 }
 
 .digitalTimer {
@@ -134,6 +135,37 @@ a:focus {
 
 .digitalTimer h1 {
   color: #011c28;
+  margin: 30px;
+}
+
+.timerButton {
+  color: #011c28;
+  opacity: 1;
+  border: 1px solid #011c28;
+  background: none;
+  margin: 6px;
+  padding: 2px 5px 2px 5px;
+  transition: 0.5s;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.timerButton:hover {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.startButton:hover {
+  color: #84b14b
+}
+
+.saveButton:hover {
+  color: #dc62f5;
+}
+
+.resetButton:hover {
+  color: #d4c346cc;;
 }
 
 .clock {
@@ -247,6 +279,8 @@ a:focus {
 .historyRenderMain {
   padding: 30px;
   border: 1px solid black;
+  max-height: 600px;
+  overflow: auto;
   max-width: 400px;
   min-width: 200px;
   margin-left: 50px;

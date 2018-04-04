@@ -18,10 +18,11 @@ class DigitalTimer extends Component {
   }
 
   handleStartClick() {
-    console.log(this.state.currentYear)
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
+    audio.volume = 0.1
     if (this.state.timerRunning === false){
+      audio.currentTime = 0
       audio.play()
       this.incrementer = setInterval(() => {
         timer.style.animation = 'spinner 1s ease-out infinite'
@@ -39,6 +40,15 @@ class DigitalTimer extends Component {
   };
 
   handleStopClick() {
+    const audio = document.querySelector('.bell')
+    let fadeAudio = setInterval( function() {
+      if (audio.volume.toFixed(2) !== '0.00'){
+        audio.volume -= 0.01
+      } else {
+        clearInterval(fadeAudio)
+      }
+    }, 200)
+
     const timer = document.querySelector('.secondsHand')
     clearInterval(this.incrementer)
     timer.style.animation = '';
@@ -85,24 +95,23 @@ class DigitalTimer extends Component {
   render() {
     return (
       <div className='digitalTimer'>
-        <h1>Timer</h1>
         <div className='clock'>
           <div className='secondsHand'>
             <div className='hand'></div>
           </div>
         </div>
-        <h1>{this.getMinutes()} : {this.getSeconds()}</h1>
-        <div className='timerButtonContainer'>
-          <button type='button' onClick={this.handleStartClick.bind(this)}>
+        <h1 className="digitalClock">{this.getMinutes()} : {this.getSeconds()}</h1>
+        <div>
+          <button type='button' className='timerButton startButton' onClick={this.handleStartClick.bind(this)}>
             Start
           </button>
-          <button type='button' onClick={this.handleStopClick.bind(this)}>
+          <button type='button' className='timerButton stopButton' onClick={this.handleStopClick.bind(this)}>
             Stop
           </button>
-          <button type='button' onClick={this.reset.bind(this)}>
+          <button type='button' className='timerButton resetButton' onClick={this.reset.bind(this)}>
             Reset
           </button>
-          <button type='button' onClick={this.saveData.bind(this)}>Save</button>
+          <button type='button' className='timerButton saveButton' onClick={this.saveData.bind(this)}>Save</button>
         </div>
         <audio src={bell} className='bell'></audio>
       </div>
