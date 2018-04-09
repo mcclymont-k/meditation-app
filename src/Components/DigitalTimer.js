@@ -20,8 +20,10 @@ class DigitalTimer extends Component {
   handleStartClick() {
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
+    const title = document.querySelector('.menuBarTitle')
     audio.volume = 0.1
     if (this.state.timerRunning === false){
+      title.style.color = "red"
       audio.currentTime = 0
       audio.play()
       this.incrementer = setInterval(() => {
@@ -40,6 +42,8 @@ class DigitalTimer extends Component {
   };
 
   handleStopClick() {
+    const title = document.querySelector('.menuBarTitle')
+    title.style.color = "white"
     const audio = document.querySelector('.bell')
     let fadeAudio = setInterval( function() {
       if (audio.volume.toFixed(2) !== '0.00'){
@@ -73,23 +77,27 @@ class DigitalTimer extends Component {
   }
 
   saveData() {
-    let secondsCount = 0
-    const historyRef = database.ref('history')
-    if (this.state.seconds%60 < 10){
-      secondsCount = '0' + this.state.seconds%60
+    if (this.state.timerRunning === true) {
+      return
     } else {
-      secondsCount = this.state.seconds%60
-    }
-    const data = {
-      time: this.state.minutes + ':' + secondsCount,
-      date: {
-        day: this.state.currentDay,
-        month: this.state.currentMonth,
-        year: this.state.currentYear
+      let secondsCount = 0
+      const historyRef = database.ref('history')
+      if (this.state.seconds%60 < 10){
+        secondsCount = '0' + this.state.seconds%60
+      } else {
+        secondsCount = this.state.seconds%60
       }
+      const data = {
+        time: this.state.minutes + ':' + secondsCount,
+        date: {
+          day: this.state.currentDay,
+          month: this.state.currentMonth,
+          year: this.state.currentYear
+        }
+      }
+      historyRef.push(data)
+      this.reset()
     }
-    historyRef.push(data)
-    this.reset()
   }
 
   render() {
