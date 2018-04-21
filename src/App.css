@@ -285,9 +285,17 @@ a:focus {
   justify-content: center;
 }
 
+.mainChart {
+  height: 100%;
+  border-bottom: 1px solid white
+}
+
 .historyRenderMain {
+  display: grid;
+  grid-template-rows: 30px 30px 1fr;
+  grid-gap: 10px;
   padding: 30px;
-  max-height: 600px;
+  max-height: 400px;
   overflow: auto;
   max-width: 400px;
   min-width: 200px;
@@ -410,6 +418,10 @@ a:focus {
 .contentItem p {
   font-size: 13px;
   padding: 10px;
+}
+
+.dataVisuals {
+  border-bottom: 1px solid white;
 }
 
 .contactInfo {

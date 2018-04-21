@@ -87,12 +87,16 @@ class DigitalTimer extends Component {
       } else {
         secondsCount = this.state.seconds%60
       }
+      var d = new Date()
+
       const data = {
-        time: this.state.minutes + ':' + secondsCount,
+        time: this.state.seconds,
         date: {
           day: this.state.currentDay,
           month: this.state.currentMonth,
-          year: this.state.currentYear
+          year: this.state.currentYear,
+          currentHour: d.getHours(),
+          currentMinute: d.getMinutes()
         }
       }
       historyRef.push(data)

@@ -21,6 +21,12 @@ class HistoryRender extends Component {
           return
         }
         const time = historyData[data].time
+        let displayMinutes = Math.floor(time/60)
+        let displaySeconds = time%60
+        if (displaySeconds < 10){
+          displaySeconds = '0' + displaySeconds
+        }
+        let displayTime = displayMinutes + ':' + displaySeconds
         let day = historyData[data].date.day
         if (day < 10) {
           day = '0' + day
@@ -30,8 +36,12 @@ class HistoryRender extends Component {
           month = '0' + month
         }
         const year = historyData[data].date.year
+        let timeOfMeditation = historyData[data].date.currentHour +
+          ':' + historyData[data].date.currentMinute
+
         timeArray.push({
-          time: time,
+          meditationLength: displayTime,
+          time: timeOfMeditation,
           day: day,
           month: month,
           year: year
@@ -50,7 +60,8 @@ class HistoryRender extends Component {
               <h1>
                 Date of meditation: {unit.day} / {unit.month} / {unit.year}
               </h1>
-              <h1>Length of meditation: {unit.time}</h1>
+              <h1>@ {unit.time}</h1>
+              <h1>Length of meditation: {unit.meditationLength}s</h1>
               <div className='borderBottom'></div>
             </div>
           )
