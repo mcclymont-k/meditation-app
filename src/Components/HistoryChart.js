@@ -8,8 +8,8 @@ class HistoryChart extends Component {
   constructor() {
     super()
     this.state = {
-      data: [12, 14, 15, 16, 78, 4],
       newData: [],
+      hoverOver: false,
     }
   }
 
@@ -38,51 +38,55 @@ class HistoryChart extends Component {
 
     let colors = d3.scaleLinear()
       .domain([0, 10])
-      .range(['white', '#3e96bc'])
+      .range(['#3e96bc', 'red'])
 
     let animateDuration = 550
     let animateDelay = 20
 
 
 
-    let myChart =
-      d3.selectAll('svg').remove();
-      d3.select('.mainChart').append('svg')
+    let removeChart = d3.selectAll('svg').remove();
+
+    let mainChart = d3.select('.mainChart')
+      .append('svg')
         .attr('width', '100%')
         .attr('height', '100%')
         .style('background', '#011c28')
-        .selectAll('rect')
-          .data(this.state.newData)
-          .enter().append('rect')
-            .style('fill', (d, i) => colors(i))
-            .style('margin-top', '5')
-            .attr('width', 0)
-            .attr('height', yScale.bandwidth())
-            .attr('x', 0)
-            .attr('y', (d, i) => i * yScale.bandwidth())
-            .style('top', 0)
+
+    mainChart.selectAll('rect')
+      .data(this.state.newData)
+      .enter().append('rect')
+        .style('fill', (d, i) => colors(i))
+        .style('opacity', 0.7)
+        .style('margin-top', '5')
+        .attr('width', 0)
+        .attr('height', yScale.bandwidth())
+        .attr('x', 0)
+        .attr('y', (d, i) => i * yScale.bandwidth())
+        .style('top', 0)
+      .on('mouseover', (d, i, n) => {
+        let eventTarget = d3.select(d3.event.target)
+          .transition()
+          .style('opacity', 1)
+          .duration(animateDuration)
+        }
+      )
+      .on('mouseout', (d) => {
+        d3.select(d3.event.target)
+          .transition()
+          .style('opacity', 0.7)
+          .duration(animateDuration)
+        d3.selectAll('rect').style('fill', (d, i) => colors(i))
+        }
+      )
 
 
-    let popUp = d3.select('.historyRenderMain').append('div')
-      .attr('id', 'popUp')
-      .style('position', 'absolute')
-      .style('opacity', '0')
-      .style('background', 'green')
-      .style('padding', '10')
-      .style('width', '200px')
-      .style('height', '200px')
-      .style('top', '-100%')
-
-    d3.selectAll('rect')
-      .transition()
+    let allRects = d3.selectAll('rect')
+    allRects.transition()
       .attr('width', (d) => xScale(d))
       .ease(d3.easeElastic)
       .duration(animateDuration)
       .delay((d, i) => i * animateDelay)
-
-
-
-
   }
 
   render() {
