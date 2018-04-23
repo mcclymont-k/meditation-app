@@ -30,7 +30,7 @@ class HistoryChart extends Component {
   mainChart() {
     let xScale = d3.scaleLinear()
       .domain([0, d3.max(this.state.newData)])
-      .range([0, '100%'])
+      .range([0, '100'])
 
     let yScale = d3.scaleBand()
       .domain(d3.range(0, 10))
@@ -44,7 +44,7 @@ class HistoryChart extends Component {
     let animateDelay = 20
 
 
-
+    // Prevents duplication by removing svg on each re render
     let removeChart = d3.selectAll('svg').remove();
 
     let mainChart = d3.select('.mainChart')
@@ -52,12 +52,22 @@ class HistoryChart extends Component {
         .attr('width', '100%')
         .attr('height', '100%')
         .style('background', '#011c28')
-
+    // Selects and appends text boxes beneath each rect
+    mainChart.selectAll('text')
+      .data(this.state.newData)
+      .enter().append('text')
+        .style('fill', (d, i) => colors(i))
+        .style('opacity', 1)
+        .attr('x', - 50)
+        .attr('y', (d, i) => i * 31.8 + 20)
+        .text((d) => d + 's')
+        .style('font-size', '15px')
+    // Selects and appends rects with a width of 0
     mainChart.selectAll('rect')
       .data(this.state.newData)
       .enter().append('rect')
         .style('fill', (d, i) => colors(i))
-        .style('opacity', 0.7)
+        .style('opacity', 1)
         .style('margin-top', '5')
         .attr('width', 0)
         .attr('height', yScale.bandwidth())
@@ -67,23 +77,36 @@ class HistoryChart extends Component {
       .on('mouseover', (d, i, n) => {
         let eventTarget = d3.select(d3.event.target)
           .transition()
-          .style('opacity', 1)
+          .style('opacity', 0.5)
+          .attr('width', '100%')
           .duration(animateDuration)
+          let selector = d3.selectAll('text').nodes()
+          d3.select(selector[i])
+            .transition()
+            .attr('x', 20)
+            .duration(1000)
+            .delay(100)
+            .ease(d3.easeElastic)
         }
       )
-      .on('mouseout', (d) => {
+      .on('mouseout', (d, i) => {
+        d3.selectAll('text')
+          .transition()
+          .duration(10)
+          .attr('x', -50)
         d3.select(d3.event.target)
           .transition()
-          .style('opacity', 0.7)
+          .style('opacity', 1)
+          .attr('width', (d) => xScale(d) + '%')
           .duration(animateDuration)
         d3.selectAll('rect').style('fill', (d, i) => colors(i))
         }
       )
 
-
+    // Animation for loading of data, runs if new data is added.
     let allRects = d3.selectAll('rect')
     allRects.transition()
-      .attr('width', (d) => xScale(d))
+      .attr('width', (d) => xScale(d) + '%')
       .ease(d3.easeElastic)
       .duration(animateDuration)
       .delay((d, i) => i * animateDelay)
