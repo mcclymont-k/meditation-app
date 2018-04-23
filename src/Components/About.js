@@ -45,8 +45,8 @@ class About extends Component{
               <p>
                 I advise that you start slowly, you may want to use a guided
                 meditation at first. Read through the
-                <Link to='/articles' style={{fontSize: '12px', color: 'red', paddingLeft: '5px'}}>articles</Link>
-                section and find a particular practice that reaches out to you.
+                <Link to='/articles' style={{fontSize: '12px', color: 'red', paddingLeft: '5px'}}>articles </Link>
+                 section and find a particular practice that reaches out to you.
                 Start with small goals and work your way towards longer sessions
                 on a more regular basis.
                 <br/><br/> Use the history tool to keep a check on how often and

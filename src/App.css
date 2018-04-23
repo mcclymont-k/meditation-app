@@ -46,7 +46,7 @@ a:focus {
   align-items: center;
   background-color: #011c28;
   color: white;
-  margin: 20px;
+  margin: 0 20px;
   transition: 0.3s;
 }
 
@@ -297,8 +297,8 @@ a:focus {
   padding: 20px;
   max-height: 400px;
   overflow: auto;
-  max-width: 400px;
-  min-width: 200px;
+  max-width: 300px;
+  min-width: 300px;
   margin-left: 50px;
   margin-top: 60px;
   font-size: 5px;
@@ -335,7 +335,8 @@ a:focus {
     width: 70vw;
     font-size: 5px;
     margin-left: 0;
-    max-width:300px
+    max-width:300px;
+    min-height: 400px
   }
   .renderTitle {
     font-size: 20px
@@ -430,6 +431,7 @@ a:focus {
 
 .dataVisuals {
   border-bottom: 1px solid white;
+  width: 100%
 }
 
 .contactInfo {

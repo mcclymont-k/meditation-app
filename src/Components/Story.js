@@ -26,12 +26,13 @@ class Story extends Component {
               rekindle the sense of wonder I felt when I first visited the centre.
               I can't honestly remember what I was expecting but it was far from
                what was to come.
-               <br/><br/>I arrived at the 'Dhamma Medini' in the late afternoon
+               <br/><br/>I arrived at 'Dhamma Medini' in the late afternoon
                on a Friday. I had spent the day waiting in both anxiety and
                anticiaption at what was to come. I arrived earlier than most
                everyone else which is a common occurence for an anxious person.
                We were told to sign in and then return to the dinner hall for a
                light dinner and a briefing.
+               <br/><br/> To be continued...
             </p>
           </div>
         </div>

@@ -3,7 +3,6 @@ import Timer from './Timer'
 import HistoryRender from './HistoryRender'
 import HistoryChart from './HistoryChart'
 
-
 class Home extends Component {
   constructor() {
     super()

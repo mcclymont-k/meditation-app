@@ -36,9 +36,12 @@ class HistoryRender extends Component {
           month = '0' + month
         }
         const year = historyData[data].date.year
+        let minute = historyData[data].date.currentMinute
+        if (minute < 10 ){
+          minute = '0' + minute
+        }
         let timeOfMeditation = historyData[data].date.currentHour +
-          ':' + historyData[data].date.currentMinute
-
+          ':' + minute
         timeArray.push({
           meditationLength: displayTime,
           time: timeOfMeditation,

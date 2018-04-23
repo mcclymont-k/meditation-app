@@ -60,7 +60,14 @@ class HistoryChart extends Component {
         .style('opacity', 1)
         .attr('x', - 50)
         .attr('y', (d, i) => i * 31.8 + 20)
-        .text((d) => d + 's')
+        .text((d) => {
+          if (d > 60) {
+            return `${Math.floor(d/60)}.${Math.floor(d%60)}s`
+          } else {
+            return d + 's'
+          }
+        })
+
         .style('font-size', '15px')
     // Selects and appends rects with a width of 0
     mainChart.selectAll('rect')
