@@ -17,6 +17,10 @@ class DigitalTimer extends Component {
     }
   }
 
+  tabataTimer() {
+    console.log('tabata')
+  }
+
   handleStartClick() {
     const timer = document.querySelector('.secondsHand')
     const audio = document.querySelector('.bell')
@@ -34,11 +38,23 @@ class DigitalTimer extends Component {
           seconds:(this.state.seconds + 1),
           minutes: Math.floor(this.state.seconds / 60)
         })
-        if (this.state.seconds%this.state.counter === 0){
+        if (this.state.counter === 'tabata') {
+          if (this.state.seconds === 240) {
+            this.handleStopClick()
+          } else {
+            if (this.state.seconds % 30 === 0) {
+              audio.currentTime = 0
+              audio.play()}
+            if (this.state.seconds === 20) {audio.play()}
+            if( (this.state.seconds - 20) % 30 === 0) {audio.play()}
+          }
+        }
+        else if (this.state.seconds%this.state.counter === 0){
           audio.play()
         }
-      }, 1000);
-    }
+      }, 1000)
+      }
+
   };
 
   handleStopClick() {

@@ -21,7 +21,7 @@ a:focus {
 .menuBarContainer {
   display:flex;
   width: 100vw;
-  height: 100px;
+  height: 80px;
   min-width: 630px;
   overflow: auto;
   color: #e2e6f3;
@@ -33,7 +33,7 @@ a:focus {
 .menuBarTitle {
   font-size: 25px;
   color: white;
-  margin: 30px;
+  margin: 25px;
   position: absolute;
   transition: 5s;
 }
@@ -124,6 +124,7 @@ a:focus {
 
 .optionTag{
   color: white;
+  font-size: 25px
 }
 
 .timerContainer {

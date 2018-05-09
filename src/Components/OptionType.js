@@ -53,6 +53,7 @@ class OptionType extends Component {
             <option value='300'>5 min reminder</option>
             <option value='600'>10 min reminder</option>
             <option value='3600'>60 min reminder</option>
+            <option value='tabata'>tabata</option>
           </select>
         </div>
         <div className='eachOption'>

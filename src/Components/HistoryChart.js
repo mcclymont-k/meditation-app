@@ -31,7 +31,6 @@ class HistoryChart extends Component {
     let xScale = d3.scaleLinear()
       .domain([0, d3.max(this.state.newData)])
       .range([0, '100'])
-
     let yScale = d3.scaleBand()
       .domain(d3.range(0, 10))
       .range([0, '318'])
